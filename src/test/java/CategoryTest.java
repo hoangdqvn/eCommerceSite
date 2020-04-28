@@ -1,25 +1,23 @@
-import com.bookstore.entity.Users;
+import com.bookstore.entity.CategoryEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-public class UsersTest {
+public class CategoryTest {
 
     public static void main(String[] args) {
-        Users user1 = new Users();
-        user1.setEmail("hoangdq252@gmail.com");
-        user1.setFullName("Hoang Dang Quang");
-        user1.setPassword("123456");
+        CategoryEntity categoryEntity = new CategoryEntity();
+        categoryEntity.setName("Programming");
 
         Configuration configuration = new Configuration().configure();
-        configuration.addAnnotatedClass(Users.class);
+        configuration.addAnnotatedClass(CategoryEntity.class);
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
         SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
         Session session = sessionFactory.openSession();
         Transaction tx1 = session.beginTransaction();
-        session.save(user1);
+        session.save(categoryEntity);
         tx1.commit();
         session.close();
     }

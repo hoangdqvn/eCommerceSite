@@ -6,10 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b120f9b-a0bc-4c30-9ebd-c0d8cf5af7d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bookstore/entity/Users.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/UsersTest.java" afterDir="false" />
+    <list default="true" id="8b120f9b-a0bc-4c30-9ebd-c0d8cf5af7d1" name="Default Changelist" comment="Design DAO and Services">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bookstore/common/HibernateUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bookstore/dao/GenericDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bookstore/dao/JpaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/OrderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bookstore/entity/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bookstore/entity/BookEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +52,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -90,7 +94,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="2945a170-3a91-4fd9-b570-0ed7ad2fb6c5" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -98,7 +105,31 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="Application.UsersTest">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="" />
+      <recent name="com.bookstore.dao" />
+      <recent name="com.bookstore.entity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.OrderTest">
+    <configuration name="CategoryTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CategoryTest" />
+      <module name="eCommerceSite" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OrderTest" />
+      <module name="eCommerceSite" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UsersTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UsersTest" />
       <module name="eCommerceSite" />
@@ -181,9 +212,13 @@
     <list>
       <item itemvalue="Tomcat Server.bookstore" />
       <item itemvalue="Application.UsersTest" />
+      <item itemvalue="Application.CategoryTest" />
+      <item itemvalue="Application.OrderTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.OrderTest" />
+        <item itemvalue="Application.CategoryTest" />
         <item itemvalue="Application.UsersTest" />
       </list>
     </recent_temporary>
@@ -197,11 +232,6 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -220,12 +250,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587797464363</updated>
-      <workItem from="1587797466067" duration="14297000" />
+      <workItem from="1587797466067" duration="50623000" />
     </task>
+    <task id="LOCAL-00001" summary="connect to Users table and Test">
+      <created>1587834287994</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587834287994</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Generate Persistence Mapping by Database Schema">
+      <created>1587989183632</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587989183632</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="connect to Users table and Test" />
+    <MESSAGE value="Generate Persistence Mapping by Database Schema" />
+    <MESSAGE value="Design DAO and Services" />
+    <option name="LAST_COMMIT_MESSAGE" value="Design DAO and Services" />
   </component>
   <component name="WindowStateProjectService">
     <state x="452" y="155" width="524" height="491" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1587827952779">
@@ -236,30 +288,50 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="177" y="55" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1294.741@72.27.1294.741" timestamp="1587806260923" />
-    <state x="982" y="135" width="374" height="633" key="#com.intellij.ide.util.MemberChooser" timestamp="1587814776304">
+    <state x="982" y="135" width="374" height="633" key="#com.intellij.ide.util.MemberChooser" timestamp="1587997580329">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="982" y="135" width="374" height="633" key="#com.intellij.ide.util.MemberChooser/72.27.1294.741@72.27.1294.741" timestamp="1587814776304" />
+    <state x="982" y="135" width="374" height="633" key="#com.intellij.ide.util.MemberChooser/72.27.1294.741@72.27.1294.741" timestamp="1587997580329" />
+    <state x="610" y="175" width="524" height="451" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1587870011373">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="610" y="175" width="524" height="451" key="#com.intellij.ide.util.PackageChooserDialog/72.27.1294.741@72.27.1294.741" timestamp="1587870011373" />
     <state x="321" y="67" width="785" height="668" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1587797595635">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="321" y="67" width="785" height="668" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/72.27.1294.741@72.27.1294.741" timestamp="1587797595635" />
-    <state width="853" height="172" key="GridCell.Tab.0.bottom" timestamp="1587806276758">
+    <state x="392" y="27" width="970" height="741" key="#com.intellij.jpa.generation.ui.DatabaseSchemaImportDialog" timestamp="1587989166771">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="853" height="172" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1587806276758" />
-    <state width="853" height="172" key="GridCell.Tab.0.center" timestamp="1587806276757">
+    <state x="392" y="27" width="970" height="741" key="#com.intellij.jpa.generation.ui.DatabaseSchemaImportDialog/72.27.1294.741@72.27.1294.741" timestamp="1587989166771" />
+    <state x="452" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587915463340">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="853" height="172" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1587806276757" />
-    <state width="853" height="172" key="GridCell.Tab.0.left" timestamp="1587806276756">
+    <state x="452" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.27.1294.741@72.27.1294.741" timestamp="1587915463340" />
+    <state x="281" y="27" width="865" height="741" key="CommitChangelistDialog2" timestamp="1588094350016">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="853" height="172" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1587806276756" />
-    <state width="853" height="172" key="GridCell.Tab.0.right" timestamp="1587806276757">
+    <state x="281" y="27" width="865" height="741" key="CommitChangelistDialog2/72.27.1294.741@72.27.1294.741" timestamp="1588094350016" />
+    <state x="502" y="141" width="424" height="520" key="FileChooserDialogImpl" timestamp="1587867257695">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="853" height="172" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1587806276757" />
+    <state x="502" y="141" width="424" height="520" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1587867257695" />
+    <state width="1248" height="2" key="GridCell.Tab.0.bottom" timestamp="1588094350114">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1248" height="2" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1588094350114" />
+    <state width="1248" height="2" key="GridCell.Tab.0.center" timestamp="1588094350105">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1248" height="2" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1588094350105" />
+    <state width="1248" height="2" key="GridCell.Tab.0.left" timestamp="1588094350101">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1248" height="2" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1588094350101" />
+    <state width="1248" height="2" key="GridCell.Tab.0.right" timestamp="1588094350106">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1248" height="2" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1588094350106" />
     <state width="853" height="172" key="GridCell.Tab.1.bottom" timestamp="1587806274101">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
@@ -292,13 +364,36 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state width="853" height="172" key="GridCell.Tab.2.right/72.27.1294.741@72.27.1294.741" timestamp="1587806274102" />
-    <state x="208" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1587797954613">
+    <state x="208" y="31" width="1007" height="737" key="SettingsEditor" timestamp="1587867563607">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="208" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1587797954613" />
+    <state x="208" y="31" width="1007" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1587867563607" />
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1587834373772">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1587834373772" />
     <state x="491" y="177" width="446" height="447" key="chooseDestDirectoryDialog" timestamp="1587806232469">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="491" y="177" width="446" height="447" key="chooseDestDirectoryDialog/72.27.1294.741@72.27.1294.741" timestamp="1587806232469" />
+    <state x="367" y="109" width="704" height="576" key="find.popup" timestamp="1587994611804">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="367" y="109" width="704" height="576" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1587994611804" />
+    <state x="383" y="174" key="run.anything.popup" timestamp="1587994700262">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="383" y="174" key="run.anything.popup/72.27.1294.741@72.27.1294.741" timestamp="1587994700262" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/schema/Generate POJOs.groovy</url>
+          <line>68</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

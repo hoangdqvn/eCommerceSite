@@ -10,8 +10,15 @@
         <property name="hibernate.connection.password">123456</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
 
-        <!--        <mapping class="ubnd.core.persistence.data.entity.RoleEntity"/>-->
+        <mapping class="com.bookstore.entity.BookEntity"/>
+        <mapping class="com.bookstore.entity.BookOrderEntity"/>
+        <mapping class="com.bookstore.entity.CategoryEntity"/>
+        <mapping class="com.bookstore.entity.CustomerEntity"/>
+        <mapping class="com.bookstore.entity.OrderDetailEntity"/>
+        <mapping class="com.bookstore.entity.ReviewEntity"/>
+        <mapping class="com.bookstore.entity.UsersEntity"/>
     </session-factory>
 
 </hibernate-configuration>
