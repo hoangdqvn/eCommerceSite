@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,6 +30,8 @@ public class BookEntity {
 
     @Column(name = "image")
     private byte[] image;
+
+//    private String base64Image;
 
     @Column(name = "price")
     private double price;
@@ -89,6 +92,16 @@ public class BookEntity {
     public void setImage(byte[] image) {
         this.image = image;
     }
+
+//    @Transient
+//    public String getBase64Image() {
+//        this.base64Image = Base64.getEncoder().encodeToString(this.image);
+//        return base64Image;
+//    }
+//    @Transient
+//    public void setBase64Image(String base64) {
+//        this.base64Image = base64;
+//    }
 
     public double getPrice() {
         return price;
