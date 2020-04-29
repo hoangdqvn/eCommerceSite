@@ -33,7 +33,7 @@ public class HibernateUtils {
             String[] params = new String[property.size()];
             Object[] values = new Object[property.size()];
             int i = 0;
-            for (Map.Entry item : property.entrySet()) {
+            for (Map.Entry<String, Object> item : property.entrySet()) {
                 params[i] = (String) item.getKey();
                 values[i] = item.getValue();
                 i++;
