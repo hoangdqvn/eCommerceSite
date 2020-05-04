@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "users")
-public class UsersEntity {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -56,7 +56,7 @@ public class UsersEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UsersEntity that = (UsersEntity) o;
+        UserEntity that = (UserEntity) o;
         return userId == that.userId &&
                 Objects.equals(email, that.email) &&
                 Objects.equals(password, that.password) &&

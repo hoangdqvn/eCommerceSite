@@ -1,6 +1,7 @@
 package com.bookstore.dao;
 
 import com.bookstore.common.HibernateUtils;
+import com.bookstore.dao.GenericDAO;
 import org.hibernate.*;
 
 import java.awt.*;
@@ -9,10 +10,10 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;
 
-public class JpaDAO<ID extends Serializable, T> implements GenericDAO<ID, T> {
+public class AbstractDAO<ID extends Serializable, T> implements GenericDAO<ID, T> {
     private Class<T> persistenceClass;
 
-    public JpaDAO() {
+    public AbstractDAO() {
         this.persistenceClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
     }
 
