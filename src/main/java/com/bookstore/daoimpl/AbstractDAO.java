@@ -1,4 +1,4 @@
-package com.bookstore.dao;
+package com.bookstore.daoimpl;
 
 import com.bookstore.common.HibernateUtils;
 import com.bookstore.dao.GenericDAO;
