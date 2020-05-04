@@ -1,4 +1,5 @@
-import com.bookstore.entity.*;
+package com.bookstore.entity;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,7 +11,6 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.io.ByteArrayOutputStream;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import javax.imageio.ImageIO;
 
 public class OrderTest {

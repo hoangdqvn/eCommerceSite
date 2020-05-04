@@ -50,21 +50,6 @@ public class OrderDetailEntity {
         this.subtotal = subtotal;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        OrderDetailEntity that = (OrderDetailEntity) o;
-//        return quantity == that.quantity &&
-//                Double.compare(that.subtotal, subtotal) == 0;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(quantity, subtotal);
-//    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
