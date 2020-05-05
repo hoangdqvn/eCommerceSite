@@ -11,10 +11,10 @@ public class UserDAOTest {
     public void update(){
         UserDAOImpl userDAO = new UserDAOImpl();
         UserEntity userEntity = new UserEntity();
-        userEntity.setUserId(19);
-        userEntity.setFullName("Hoang Ngoan");
+        userEntity.setUserId(20);
+        userEntity.setFullName("Huu DQ");
         userEntity.setPassword("hn2020");
-        userEntity.setEmail("braveheart@gmail.com");
+        userEntity.setEmail("huudq@gmail.com");
 
         userEntity = userDAO.update(userEntity);
         String expected = "hn2020";
