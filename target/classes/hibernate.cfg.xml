@@ -18,7 +18,7 @@
         <mapping class="com.bookstore.entity.CustomerEntity"/>
         <mapping class="com.bookstore.entity.OrderDetailEntity"/>
         <mapping class="com.bookstore.entity.ReviewEntity"/>
-        <mapping class="com.bookstore.entity.UsersEntity"/>
+        <mapping class="com.bookstore.entity.UserEntity"/>
     </session-factory>
 
 </hibernate-configuration>
