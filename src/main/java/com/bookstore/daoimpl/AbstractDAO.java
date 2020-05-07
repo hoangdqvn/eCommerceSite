@@ -82,7 +82,7 @@ public class AbstractDAO<ID extends Serializable, T> implements GenericDAO<ID, T
         try {
             results = (T) session.get(persistenceClass, id);
             if (results == null) {
-                throw new ObjectNotFoundException("NOT FUOND " + id, null);
+                throw new ObjectNotFoundException("NOT FOUND " + id, null);
             }
             transaction.commit();
         } catch (HeadlessException e) {
