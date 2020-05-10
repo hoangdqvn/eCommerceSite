@@ -16,11 +16,15 @@
 
     <div align="center">
         <h2>Users Management</h2>
-        <h3><a href="create_users">Create New User</a></h3>
+        <h3><a href="user_form.jsp">Create New User</a></h3>
     </div>
 
     <div align="center">
-        <table border="1">
+        <h4><i>${message}</i></h4>
+    </div>
+
+    <div align="center">
+        <table border="1" cellpadding="5">
             <tr>
                 <th>Index</th>
                 <th>ID</th>

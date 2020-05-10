@@ -18,9 +18,9 @@ public class UserDAOTest {
         UserEntity userEntity = new UserEntity();
 
 //        userEntity.setUserId(21);
-        userEntity.setFullName("Khoa PA");
+        userEntity.setFullName("Diep PN");
         userEntity.setPassword("hn2020");
-        userEntity.setEmail("khoapa@gmail.com");
+        userEntity.setEmail("dieppn@gmail.com");
 
         UserEntity userEntity1 = userDAO.save(userEntity);
 

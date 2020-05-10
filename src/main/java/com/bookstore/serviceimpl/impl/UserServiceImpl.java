@@ -1,13 +1,16 @@
 package com.bookstore.serviceimpl.impl;
 
-import com.bookstore.dao.UserDAO;
-import com.bookstore.daoimpl.UserDAOImpl;
 import com.bookstore.dto.UserDTO;
 import com.bookstore.entity.UserEntity;
 import com.bookstore.service.UserService;
 import com.bookstore.serviceimpl.utils.SingletonDaoUtil;
 import com.bookstore.utils.UserBeanUtils;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -51,5 +54,29 @@ public class UserServiceImpl implements UserService {
         }
         objects[1] = userDtoList;
         return objects;
+    }
+
+    public void listUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        List<UserEntity> list = SingletonDaoUtil.getUserDaoInstance().findAll();
+        List<UserDTO> UserDTOList = new ArrayList<>();
+        for (UserEntity entity : list){
+            UserDTOList.add(UserBeanUtils.entityToDTO(entity));
+        }
+
+        request.setAttribute("listUsers", UserDTOList);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("user_list.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    public void createUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserDTO userDTO = new UserDTO();
+
+        userDTO.setEmail(request.getParameter("email"));
+        userDTO.setFullName(request.getParameter("fullname"));
+        userDTO.setPassword(request.getParameter("password"));
+
+        UserEntity entity = UserBeanUtils.dtoToEntity(userDTO);
+        SingletonDaoUtil.getUserDaoInstance().save(entity);
     }
 }

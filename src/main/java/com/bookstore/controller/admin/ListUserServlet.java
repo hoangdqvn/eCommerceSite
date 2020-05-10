@@ -16,12 +16,14 @@ import java.util.List;
 @WebServlet(name = "ListUserServlet", urlPatterns = "/admin/list_users")
 public class ListUserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        List<UserDTO> listUsers = SingletonServiceUtil.getUserServiceInstance().findAll();
+//
+//        request.setAttribute("listUsers", listUsers);
+//
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("user_list.jsp");
+//        dispatcher.forward(request, response);
+
         UserServiceImpl userService = new UserServiceImpl();
-        List<UserDTO> listUsers = SingletonServiceUtil.getUserServiceInstance().findAll();
-
-        request.setAttribute("listUsers", listUsers);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user_list.jsp");
-        dispatcher.forward(request, response);
+        userService.listUsers(request,response);
     }
 }

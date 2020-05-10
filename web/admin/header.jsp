@@ -7,7 +7,7 @@
 --%>
 <div align="center">
     <div>
-        <img src="../images/BookstoreLogo.png"/>
+        <img src="../images/BookstoreAdminLogo.png"/>
     </div>
 
     <div>
