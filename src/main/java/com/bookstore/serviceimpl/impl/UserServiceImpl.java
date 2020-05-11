@@ -4,6 +4,7 @@ import com.bookstore.dto.UserDTO;
 import com.bookstore.entity.UserEntity;
 import com.bookstore.service.UserService;
 import com.bookstore.serviceimpl.utils.SingletonDaoUtil;
+import com.bookstore.serviceimpl.utils.SingletonServiceUtil;
 import com.bookstore.utils.UserBeanUtils;
 
 import javax.servlet.RequestDispatcher;
@@ -78,5 +79,38 @@ public class UserServiceImpl implements UserService {
 
         UserEntity entity = UserBeanUtils.dtoToEntity(userDTO);
         SingletonDaoUtil.getUserDaoInstance().save(entity);
+    }
+
+    public void editUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Integer userId = Integer.parseInt(request.getParameter("id"));
+        UserDTO userDTO = SingletonServiceUtil.getUserServiceInstance().findById(userId);
+
+        String redirectedPage = "user_form.jsp";
+
+        if (userDTO == null) {
+            redirectedPage = "message.jsp";
+            String message = "Could not find user with ID " + userId;
+            request.setAttribute("message", message);
+        } else {
+            request.setAttribute("userE", userDTO);
+        }
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(redirectedPage);
+        dispatcher.forward(request, response);
+    }
+
+    public void updateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserDTO userDTO = new UserDTO();
+
+        Integer userId = Integer.parseInt(request.getParameter("userId"));
+        userDTO.setUserId(userId);
+        userDTO.setEmail(request.getParameter("email"));
+        userDTO.setFullName(request.getParameter("fullname"));
+        userDTO.setPassword(request.getParameter("password"));
+
+//        System.out.println(userId);
+
+        UserEntity entity = UserBeanUtils.dtoToEntity(userDTO);
+        SingletonDaoUtil.getUserDaoInstance().update(entity);
     }
 }

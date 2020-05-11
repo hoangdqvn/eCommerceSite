@@ -1,4 +1,4 @@
-package com.bookstore.controller.admin;
+package com.bookstore.controller.admin.user;
 
 import com.bookstore.dto.UserDTO;
 import com.bookstore.serviceimpl.impl.UserServiceImpl;

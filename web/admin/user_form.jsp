@@ -15,23 +15,34 @@
     <jsp:directive.include file="header.jsp"/>
 
     <div align="center">
-        <h2>Create New User</h2>
+        <h2>
+            <c:if test="${userE != null}">Edit User</c:if>
+            <c:if test="${userE == null}">Create New User</c:if>
+        </h2>
     </div>
 
     <div align="center">
-        <form action="create_user" method="post" onsubmit="return validateFormInput()">
+
+        <c:if test="${userE != null}">
+            <form action="update_user" method="post" onsubmit="return validateFormInput()">
+                <input type="hidden" name="userId" value="${userE.userId}"/>
+        </c:if>
+        <c:if test="${userE == null}">
+            <form action="create_user" method="post" onsubmit="return validateFormInput()">
+        </c:if>
+
             <table>
                 <tr>
                     <td align="right">Email:</td>
-                    <td align="left"><input type="text" id="email" name="email" size="20"/></td>
+                    <td align="left"><input type="text" id="email" name="email" size="20" value="${userE.email}"/></td>
                 </tr>
                 <tr>
                     <td align="right">Fullname:</td>
-                    <td align="left"><input type="text" id="fullname" name="fullname" size="20"/></td>
+                    <td align="left"><input type="text" id="fullname" name="fullname" size="20" value="${userE.fullName}"/></td>
                 </tr>
                 <tr>
                     <td align="right">Password:</td>
-                    <td align="left"><input type="password" id="password" name="password" size="20"/></td>
+                    <td align="left"><input type="password" id="password" name="password" size="20" value="${userE.password}"/></td>
                 </tr>
                 <tr><td>&nbsp;</td></tr>
                 <tr>
