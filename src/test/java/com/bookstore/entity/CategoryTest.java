@@ -1,6 +1,5 @@
 package com.bookstore.entity;
 
-import com.bookstore.entity.CategoryEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
