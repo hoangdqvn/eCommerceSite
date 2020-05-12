@@ -9,16 +9,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link rel="stylesheet" href="../css/style.css">
     <title>Manage Users - Hedspi Books - Administration</title>
 </head>
 <body>
     <jsp:directive.include file="header.jsp"/>
 
     <div align="center">
-        <h2>
+        <h1 class="pageheading">
             <c:if test="${userE != null}">Edit User</c:if>
             <c:if test="${userE == null}">Create New User</c:if>
-        </h2>
+        </h1>
     </div>
 
     <div align="center">
@@ -31,7 +32,7 @@
             <form action="create_user" method="post" onsubmit="return validateFormInput()">
         </c:if>
 
-            <table>
+            <table class="form">
                 <tr>
                     <td align="right">Email:</td>
                     <td align="left"><input type="text" id="email" name="email" size="20" value="${userE.email}"/></td>
@@ -47,8 +48,8 @@
                 <tr><td>&nbsp;</td></tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <input type="submit" value="Save"/>
-                        <input type="button" value="Cancel" onclick="javascript:history.go(-1);"/>
+                        <button type="submit">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button onclick="javascript:history.go(-1);">Cancel</button>
                     </td>
                 </tr>
             </table>

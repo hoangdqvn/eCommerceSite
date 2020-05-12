@@ -8,13 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="../css/style.css">
     <title>Hedspi Bookstore Administration</title>
 </head>
 <body>
     <jsp:directive.include file="header.jsp" />
 
     <div align="center">
-        <h3>${message}</h3>
+        <h3 class="message">${message}</h3>
     </div>
 
     <jsp:directive.include file="footer.jsp" />

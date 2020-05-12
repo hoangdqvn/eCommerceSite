@@ -9,18 +9,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link rel="stylesheet" href="../css/style.css">
     <title>Manage Categories - Hedspi Books - Administration</title>
 </head>
 <body>
     <jsp:directive.include file="header.jsp"/>
 
     <div align="center">
-        <h2>Categories Management</h2>
+        <h1 class="pageheading">Categories Management</h1>
         <h3><a href="category_form.jsp">Create New Category</a></h3>
     </div>
 
     <div align="center">
-        <h4><i>${message}</i></h4>
+        <h4 class="message">${message}</h4>
     </div>
 
     <div align="center">
