@@ -1,0 +1,58 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: hoangdq
+  Date: 12/05/2020
+  Time: 07:14
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>Manage Categories - Hedspi Books - Administration</title>
+</head>
+<body>
+    <jsp:directive.include file="header.jsp"/>
+
+    <div align="center">
+        <h2>Categories Management</h2>
+        <h3><a href="category_form.jsp">Create New Category</a></h3>
+    </div>
+
+    <div align="center">
+        <h4><i>${message}</i></h4>
+    </div>
+
+    <div align="center">
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Index</th>
+                <th>ID</th>
+                <th>Category Name</th>
+                <th>Actions</th>
+            </tr>
+            <c:forEach var="category" items="${listCategory}" varStatus="status">
+                <tr>
+                    <td>${status.index + 1}</td>
+                    <td>${category.categoryId}</td>
+                    <td>${category.name}</td>
+                    <td>
+                        <a href="edit_category?id=${category.categoryId}">Edit</a> &nbsp;&nbsp;
+                        <a href="javascript:confirmDelete(${category.categoryId})">Delete</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+
+    <jsp:directive.include file="footer.jsp"/>
+
+    <script>
+        function confirmDelete(categoryId) {
+            if (confirm("Are you sure you want to delete category with ID "+categoryId+"?")){
+                window.location = "delete_category?id="+categoryId;
+            }
+        }
+    </script>
+</body>
+</html>
