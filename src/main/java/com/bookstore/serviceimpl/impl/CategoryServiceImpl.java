@@ -4,8 +4,14 @@ import com.bookstore.dto.CategoryDTO;
 import com.bookstore.entity.CategoryEntity;
 import com.bookstore.service.CategoryService;
 import com.bookstore.serviceimpl.utils.SingletonDaoUtil;
+import com.bookstore.serviceimpl.utils.SingletonServiceUtil;
 import com.bookstore.utils.CategoryBeanUtils;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -51,5 +57,56 @@ public class CategoryServiceImpl implements CategoryService {
         }
         objects[1] = categoryDtoList;
         return objects;
+    }
+
+    public void listCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<CategoryEntity> list = SingletonDaoUtil.getCategoryDaoInstance().findAll();
+        List<CategoryDTO> categoryDTOList = new ArrayList<>();
+        for (CategoryEntity entity : list){
+            categoryDTOList.add(CategoryBeanUtils.entityToDTO(entity));
+        }
+
+        request.setAttribute("listCategory", categoryDTOList);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("category_list.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    public void createCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        CategoryDTO categoryDTO = new CategoryDTO();
+
+        categoryDTO.setName(request.getParameter("name"));
+
+        CategoryEntity entity = CategoryBeanUtils.dtoToEntity(categoryDTO);
+        SingletonDaoUtil.getCategoryDaoInstance().save(entity);
+    }
+
+    public void editCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Integer categoryId = Integer.parseInt(request.getParameter("id"));
+        CategoryDTO categoryDTO = SingletonServiceUtil.getCategoryServiceInstance().findById(categoryId);
+
+        String redirectedPage = "category_form.jsp";
+
+        if (categoryDTO == null) {
+            redirectedPage = "message.jsp";
+            String message = "Could not find category with ID " + categoryId;
+            request.setAttribute("message", message);
+        } else {
+            request.setAttribute("categoryE", categoryDTO);
+        }
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(redirectedPage);
+        dispatcher.forward(request, response);
+    }
+
+    public void updateCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        CategoryDTO categoryDTO = new CategoryDTO();
+
+        Integer categoryId = Integer.parseInt(request.getParameter("categoryId"));
+        categoryDTO.setCategoryId(categoryId);
+        categoryDTO.setName(request.getParameter("name"));
+
+        CategoryEntity entity = CategoryBeanUtils.dtoToEntity(categoryDTO);
+        SingletonDaoUtil.getCategoryDaoInstance().update(entity);
     }
 }

@@ -59,12 +59,12 @@ public class UserServiceImpl implements UserService {
 
     public void listUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         List<UserEntity> list = SingletonDaoUtil.getUserDaoInstance().findAll();
-        List<UserDTO> UserDTOList = new ArrayList<>();
+        List<UserDTO> userDTOList = new ArrayList<>();
         for (UserEntity entity : list){
-            UserDTOList.add(UserBeanUtils.entityToDTO(entity));
+            userDTOList.add(UserBeanUtils.entityToDTO(entity));
         }
 
-        request.setAttribute("listUsers", UserDTOList);
+        request.setAttribute("listUsers", userDTOList);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("user_list.jsp");
         dispatcher.forward(request, response);

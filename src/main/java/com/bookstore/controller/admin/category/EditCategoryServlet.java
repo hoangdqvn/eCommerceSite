@@ -9,16 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ListCategoryServlet", urlPatterns = "/admin/list_category")
-public class ListCategoryServlet extends HttpServlet {
+@WebServlet(name = "EditCategoryServlet", urlPatterns = "/admin/edit_category")
+public class EditCategoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        List<CategoryDTO> listCategory = SingletonServiceUtil.getCategoryServiceInstance().findAll();
-//
-//        request.setAttribute("listCategory", listCategory);
-//
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("category_list.jsp");
-//        dispatcher.forward(request, response);
         CategoryServiceImpl categoryService = new CategoryServiceImpl();
-        categoryService.listCategory(request,response);
+        categoryService.editCategory(request,response);
     }
 }

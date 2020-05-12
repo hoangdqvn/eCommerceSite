@@ -2,7 +2,6 @@ package com.bookstore.controller.admin.user;
 
 import com.bookstore.dto.UserDTO;
 import com.bookstore.serviceimpl.impl.UserServiceImpl;
-import com.bookstore.serviceimpl.utils.SingletonServiceUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

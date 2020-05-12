@@ -16,7 +16,7 @@ public class CategoryServiceTest {
     @Test
     public void create(){
         CategoryDTO categoryDTO = new CategoryDTO();
-        categoryDTO.setName("Business");
+        categoryDTO.setName("Art");
 
         SingletonServiceUtil.getCategoryServiceInstance().saveCategory(categoryDTO);
     }
