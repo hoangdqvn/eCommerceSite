@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: hoangdq
@@ -17,5 +18,18 @@
         <a href="login">Sign In</a> |
         <a href="register">Register</a>|
         <a href="view_cart">Cart</a>
+    </div>
+    <br/>
+    <div>
+        <b>
+            <c:forEach var="category" items="${listCategory}" varStatus="status">
+                <a href="view_category?=${category.categoryId}">
+                    <font size="+1">${category.name}</font>
+                </a>
+                <c:if test="${not status.last}">
+                &nbsp; | &nbsp;
+                </c:if>
+            </c:forEach>
+        </b>
     </div>
 </div>
