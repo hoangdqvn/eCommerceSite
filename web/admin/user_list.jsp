@@ -11,6 +11,8 @@
 <head>
     <link rel="stylesheet" href="../css/style.css">
     <title>Manage Users - Hedspi Books - Administration</title>
+    <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.validate.min.js"></script>
 </head>
 <body>
     <jsp:directive.include file="header.jsp"/>
@@ -41,7 +43,7 @@
                     <td>${user.fullName}</td>
                     <td>
                         <a href="edit_user?id=${user.userId}">Edit</a> &nbsp;&nbsp;
-                        <a href="javascript:confirmDelete(${user.userId})">Delete</a>
+                        <a href="javascript:void(0);" class="deleteLink" id="${user.userId}">Delete</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -51,11 +53,15 @@
     <jsp:directive.include file="footer.jsp"/>
 
     <script>
-        function confirmDelete(userId) {
-            if (confirm("Are you sure you want to delete user with ID "+userId+"?")){
-                window.location = "delete_user?id="+userId;
-            }
-        }
+        $(document).ready(function () {
+            $(".deleteLink").each(function () {
+                $(this).on("click", function () {
+                    var userId = $(this).attr("id");
+                    if (confirm("Are you sure you want to delete the user with ID "+ userId +"?"))
+                        window.location = 'delete_user?id=' + userId;
+                });
+            });
+        });
     </script>
 
 </body>
