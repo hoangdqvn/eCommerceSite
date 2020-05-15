@@ -57,6 +57,11 @@ public class UserServiceImpl implements UserService {
         return objects;
     }
 
+    public UserDTO isUserExist(UserDTO dto) {
+        UserEntity entity = SingletonDaoUtil.getUserDaoInstance().isUserExist(dto.getEmail(), dto.getPassword());
+        return UserBeanUtils.entityToDTO(entity);
+    }
+
     public void listUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         List<UserEntity> list = SingletonDaoUtil.getUserDaoInstance().findAll();
         List<UserDTO> userDTOList = new ArrayList<>();
