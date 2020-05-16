@@ -5,13 +5,14 @@
   Time: 06:56
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div align="center">
     <div>
         <img src="../images/BookstoreAdminLogo.png"/>
     </div>
 
     <div>
-        Welcome, hoangdq252@gmail.com | <a href="logout">Logout</a><br/>&nbsp;<br/>&nbsp;
+        Welcome, <c:out value="${sessionScope.useremail}" /> | <a href="logout">Logout</a><br/>&nbsp;<br/>&nbsp;
     </div>
     <div id="headermenu">
         <div>
