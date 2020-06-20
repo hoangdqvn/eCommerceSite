@@ -7,6 +7,7 @@ import org.hibernate.*;
 import java.awt.*;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -157,7 +158,32 @@ public class AbstractDAO<ID extends Serializable, T> implements GenericDAO<ID, T
         return count;
     }
 
-//    public T findEqualUnique(String property, Object value) {
+    public int getTotalRecordCount(){
+        int totalRecords = -1;
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            StringBuilder sql = new StringBuilder("SELECT COUNT(*) as count FROM ");
+            sql.append(getPersistenceClassName());
+
+            Query query = session.createQuery(sql.toString());
+
+//            totalRecords = (int)query.uniqueResult();
+
+            for(Iterator it = query.iterate(); it.hasNext();) {
+                totalRecords = (int) it.next();
+            }
+            transaction.commit();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+        return totalRecords;
+    }
+
+    //    public T findEqualUnique(String property, Object value) {
 //        return null;
 //    }
 }

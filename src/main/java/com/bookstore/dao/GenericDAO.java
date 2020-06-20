@@ -17,5 +17,6 @@ public interface GenericDAO<ID extends Serializable, T>  {
 
     Integer delete(List<ID> ids);
 
+    int getTotalRecordCount();
 //    T findEqualUnique(String property, Object value);
 }

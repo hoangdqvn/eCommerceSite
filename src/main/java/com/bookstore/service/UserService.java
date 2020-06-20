@@ -13,6 +13,4 @@ public interface UserService {
     int delete(Integer userId);
     Object[] findByProperty(Map<String, Object> property, Boolean exact);
     UserDTO isUserExist(UserDTO dto);
-//    UserDTO updateUserInfo(UserDTO dto);
-//    int status(Integer userId, Integer status);
 }
